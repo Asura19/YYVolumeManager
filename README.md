@@ -1,6 +1,5 @@
 # YYVolumeManager
 
-iOS volume manager
 As we all know, it is not convenient to change media volume in iOS. So I write this tool to make it easy.
 
 # Useage
