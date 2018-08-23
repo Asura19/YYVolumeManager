@@ -10,7 +10,7 @@
 #import "YYVolumeManager.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController ()<YYVolumeDelegate>
+@interface ViewController ()<YYVolumeObserver>
 @property (nonatomic, assign) CGFloat originalVolume;
 @property (nonatomic, assign) CGPoint touchStartPoint;
 @end
@@ -21,7 +21,11 @@
     [super viewDidLoad];
     // 使音量控制实体键响应“音量”而不是”铃声”
     [[AVAudioSession sharedInstance] setActive:YES error:NULL];
-    [YYVolumeManager shared].delegate = self;
+    [[YYVolumeManager shared] addObserver:self];
+}
+
+- (void)dealloc {
+    [[YYVolumeManager shared] removeObserver:self];
 }
 
 - (IBAction)setDefaultVolumeUI:(UISwitch *)sender {

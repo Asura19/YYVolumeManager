@@ -15,6 +15,7 @@
 		D074D94B1F62ADDC00CB0E92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D94A1F62ADDC00CB0E92 /* main.m */; };
 		D074D9551F62AE2900CB0E92 /* YYVolumeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */; };
 		D074D9561F62AE2900CB0E92 /* VolumeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D9541F62AE2900CB0E92 /* VolumeSlider.m */; };
+		D0C98603212E9DB8008CCF8A /* YYVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C98602212E9DB8008CCF8A /* YYVolumeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		D074D9521F62AE2800CB0E92 /* VolumeSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeSlider.h; sourceTree = "<group>"; };
 		D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYVolumeManager.m; sourceTree = "<group>"; };
 		D074D9541F62AE2900CB0E92 /* VolumeSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeSlider.m; sourceTree = "<group>"; };
+		D0C98601212E9DB8008CCF8A /* YYVolumeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYVolumeView.h; sourceTree = "<group>"; };
+		D0C98602212E9DB8008CCF8A /* YYVolumeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYVolumeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */,
 				D074D9521F62AE2800CB0E92 /* VolumeSlider.h */,
 				D074D9541F62AE2900CB0E92 /* VolumeSlider.m */,
+				D0C98601212E9DB8008CCF8A /* YYVolumeView.h */,
+				D0C98602212E9DB8008CCF8A /* YYVolumeView.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			files = (
 				D074D9401F62ADDC00CB0E92 /* ViewController.m in Sources */,
 				D074D9551F62AE2900CB0E92 /* YYVolumeManager.m in Sources */,
+				D0C98603212E9DB8008CCF8A /* YYVolumeView.m in Sources */,
 				D074D94B1F62ADDC00CB0E92 /* main.m in Sources */,
 				D074D9561F62AE2900CB0E92 /* VolumeSlider.m in Sources */,
 				D074D93D1F62ADDC00CB0E92 /* AppDelegate.m in Sources */,

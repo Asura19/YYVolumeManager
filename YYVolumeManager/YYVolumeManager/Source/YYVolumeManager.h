@@ -7,21 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "YYVolumeView.h"
 
-@protocol YYVolumeDelegate <NSObject>
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol YYVolumeObserver <NSObject>
 @optional
-- (void)volumeChanged:(float)value;
+- (void)volumeChanged:(CGFloat)value;
 @end
 
 @interface YYVolumeManager : NSObject
-@property (nonatomic, weak) id<YYVolumeDelegate> delegate;
-@property (nonatomic, assign) float volume;
+@property (nonatomic, assign) CGFloat volume;
 @property (nonatomic, assign) BOOL defaultVolumeUI;
+@property (nonatomic, strong) YYVolumeView *customVolumeView;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;
 
-+ (YYVolumeManager *)shared;
++ (nullable instancetype)shared;
 + (void)releaseSingleton;
-- (void)removeNotification;
+
+- (void)addObserver:(id<YYVolumeObserver>)observer;
+- (void)removeObserver:(id<YYVolumeObserver>)observer;
 @end
+
+NS_ASSUME_NONNULL_END

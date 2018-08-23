@@ -48,25 +48,25 @@
     return self;
 }
 
-- (void)initializeWithValue:(float)value {
-    _value = value;
-    [self setupSliderWithValue:value];
-}
 
-- (void)setValue:(float)value {
-    _value = value;
+- (void)setVolume:(CGFloat)volume {
+    [super setVolume:volume];
+    [self setupSliderWithValue:volume];
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self
                                              selector:@selector(hideSelf)
                                                object:nil];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.alpha = 1;
-        [self setupSliderWithValue:value];
+        [self setupSliderWithValue:volume];
     });
     [self performSelector:@selector(hideSelf)
                withObject:nil
                afterDelay:2.0];
 }
+
+
 
 - (void)setupSliderWithValue:(float)value {
     CGRect temp = self.sliderLayer.frame;

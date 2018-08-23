@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YYVolumeView.h"
 
-@interface VolumeSlider : UIView
-@property (nonatomic, assign) float value;
-- (void)initializeWithValue:(float)value;
+@interface VolumeSlider : YYVolumeView
+
 @end
