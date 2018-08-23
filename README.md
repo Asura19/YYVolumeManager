@@ -4,8 +4,7 @@ As we all know, it is not convenient to change media volume in iOS. So I write t
 
 # Useage
 ```
-// maybe I will change it to multiple delegate someday
-[YYVolumeManager shared].delegate = self;
+[[YYVolumeManager shared] addObserver:self];
 ```
 
 Back to Default volume UI
@@ -15,7 +14,7 @@ Back to Default volume UI
 
 Do something if you want when wolume changed
 ```
-- (void)volumeChanged:(float)value {}
+- (void)volumeChanged:(CGFloat)value {}
 ```
 
 You can use your custom UI if you do not like mine.
