@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press volume button or slide the screen to change volume" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="by2-gP-Na8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press volume button or drag the slider to change volume" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="by2-gP-Na8">
                                 <rect key="frame" x="76" y="115" width="222" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="uwM-s9-9p8"/>
@@ -36,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Coz-n7-o6M">
-                                <rect key="frame" x="163" y="461" width="51" height="31"/>
+                                <rect key="frame" x="162.5" y="461" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="0cB-sw-aSJ"/>
                                     <constraint firstAttribute="height" constant="31" id="f8z-OD-sgm"/>
@@ -45,20 +46,36 @@
                                     <action selector="setDefaultVolumeUI:" destination="BYZ-38-t0r" eventType="valueChanged" id="E9C-O7-eRF"/>
                                 </connections>
                             </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="75i-9W-ZZc">
+                                <rect key="frame" x="28" y="372" width="319" height="30"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="PIX-cy-7iG"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeVolume:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ut7-mC-ToG"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ygz-my-Bnc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="3Sx-ia-MxG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ygz-my-Bnc" secondAttribute="trailing" constant="77" id="Hat-UH-Qcl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ygz-my-Bnc" secondAttribute="bottom" constant="100" id="RwR-SG-Y39"/>
+                            <constraint firstItem="Coz-n7-o6M" firstAttribute="top" secondItem="75i-9W-ZZc" secondAttribute="bottom" constant="60" id="a8G-U4-Suf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="75i-9W-ZZc" secondAttribute="trailing" constant="30" id="dd3-zk-OdZ"/>
                             <constraint firstItem="by2-gP-Na8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="k2z-kR-9j4"/>
                             <constraint firstItem="ygz-my-Bnc" firstAttribute="centerX" secondItem="Coz-n7-o6M" secondAttribute="centerX" id="kiz-Xz-v1C"/>
                             <constraint firstItem="by2-gP-Na8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="lb4-VH-yOT"/>
                             <constraint firstItem="ygz-my-Bnc" firstAttribute="top" secondItem="Coz-n7-o6M" secondAttribute="bottom" constant="5" id="u1q-tP-p3e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="by2-gP-Na8" secondAttribute="trailing" constant="77" id="wNH-HJ-l58"/>
+                            <constraint firstItem="75i-9W-ZZc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="xWi-gC-quc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="slider" destination="75i-9W-ZZc" id="2XY-Rf-KGi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

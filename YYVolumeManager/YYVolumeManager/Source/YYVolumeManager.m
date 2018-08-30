@@ -45,13 +45,12 @@ static dispatch_once_t onceToken;
 - (instancetype)_init {
     self = [super init];
     _observers = [[NSHashTable alloc] initWithOptions:NSPointerFunctionsWeakMemory | NSPointerFunctionsObjectPersonality capacity:0];
+    _volume = [[AVAudioSession sharedInstance] outputVolume];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.defaultVolumeView = [[MPVolumeView alloc] init];
         [self.defaultVolumeView setFrame:CGRectMake(-100, -100, 40, 40)];
         [[UIApplication sharedApplication].keyWindow addSubview:self.defaultVolumeView];
-        _volume = [[AVAudioSession sharedInstance] outputVolume];
         _customVolumeView = [[VolumeSlider alloc] initWithVolume:_volume];
-        
     });
     [self registeNotification];
     return self;

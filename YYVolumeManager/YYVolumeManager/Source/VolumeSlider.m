@@ -39,6 +39,8 @@ static CGFloat const SLIDER_HEIGHT = 18;
         self.sliderLayer.backgroundColor = [UIColor whiteColor].CGColor;
         self.sliderLayer.cornerRadius = SLIDER_CORNERRADIUS;
         [backLayer addSublayer:self.sliderLayer];
+        
+        
     }
     return self;
 }
@@ -51,25 +53,26 @@ static CGFloat const SLIDER_HEIGHT = 18;
     self.volumeIcon.frame = CGRectMake(0, 0, height, height);
     self.backLayer.frame = CGRectMake(height + 10, (height - 4) / 2.0, width - height - 10, 4);
     self.sliderLayer.frame = self.backLayer.bounds;
+    [self setupSliderWithValue:self.volume];
 }
 
 - (void)setVolume:(CGFloat)volume {
+    [self setupSliderWithValue:volume];
     [super setVolume:volume];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self setupSliderWithValue:volume];
-    });
 }
 
 - (void)setupSliderWithValue:(float)value {
-    CGRect temp = self.sliderLayer.frame;
-    temp.size.width = (SLIDER_WIDTH - SLIDER_HEIGHT - 10) * value;
-    self.sliderLayer.frame = temp;
-    if (value == 0) {
-        self.volumeIcon.image = [UIImage imageNamed:@"volume_silent"];
-    }
-    else {
-        self.volumeIcon.image = [UIImage imageNamed:@"volume"];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGRect temp = self.sliderLayer.frame;
+        temp.size.width = (SLIDER_WIDTH - SLIDER_HEIGHT - 10) * value;
+        self.sliderLayer.frame = temp;
+        if (value == 0) {
+            self.volumeIcon.image = [UIImage imageNamed:@"volume_silent"];
+        }
+        else {
+            self.volumeIcon.image = [UIImage imageNamed:@"volume"];
+        }
+    });
 }
 
 @end

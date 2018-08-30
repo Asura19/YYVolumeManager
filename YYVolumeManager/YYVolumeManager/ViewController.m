@@ -10,9 +10,10 @@
 #import "YYVolumeManager.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ViewController ()<YYVolumeObserver>
+@interface ViewController () <YYVolumeObserver>
 @property (nonatomic, assign) CGFloat originalVolume;
 @property (nonatomic, assign) CGPoint touchStartPoint;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 @end
 
 @implementation ViewController
@@ -22,10 +23,15 @@
     // 使音量控制实体键响应“音量”而不是”铃声”
     [[AVAudioSession sharedInstance] setActive:YES error:NULL];
     [[YYVolumeManager shared] addObserver:self];
+    self.slider.value = [YYVolumeManager shared].volume;
 }
 
 - (void)dealloc {
     [[YYVolumeManager shared] removeObserver:self];
+}
+
+- (IBAction)changeVolume:(UISlider *)sender {
+    [YYVolumeManager shared].volume = sender.value;
 }
 
 - (IBAction)setDefaultVolumeUI:(UISwitch *)sender {
@@ -37,17 +43,8 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    self.touchStartPoint = [touch locationInView:self.view];
-    self.originalVolume = [YYVolumeManager shared].volume;
-    
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self.view];
-    CGFloat deltaY = point.y - self.touchStartPoint.y;
-    [YYVolumeManager shared].volume = self.originalVolume - 3 * deltaY / self.view.frame.size.height;
+- (void)volumeChanged:(CGFloat)value {
+    NSLog(@"Media volume is %@", @(value));
+    self.slider.value = value;
 }
 @end
