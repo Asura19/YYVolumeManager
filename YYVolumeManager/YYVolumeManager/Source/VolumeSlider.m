@@ -8,9 +8,15 @@
 
 #import "VolumeSlider.h"
 
+static CGFloat const SLIDER_CORNERRADIUS = 2;
+static CGFloat const SLIDER_WIDTH = 300;
+static CGFloat const SLIDER_HEIGHT = 18;
+
+
 @interface VolumeSlider ()
 @property (nonatomic, strong) UIImageView *volumeIcon;
 @property (nonatomic, strong) CALayer *sliderLayer;
+@property (nonatomic, strong) CALayer *backLayer;
 @end
 
 @implementation VolumeSlider
@@ -18,59 +24,45 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.alpha = 0;
         
         self.volumeIcon = [UIImageView new];
         self.volumeIcon.image = [UIImage imageNamed:@"volume"];
         [self addSubview:self.volumeIcon];
 
         CALayer *backLayer = [CALayer new];
+        self.backLayer = backLayer;
         backLayer.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5].CGColor;
-        backLayer.cornerRadius = 2;
+        backLayer.cornerRadius = SLIDER_CORNERRADIUS;
         [self.layer addSublayer:backLayer];
         
         self.sliderLayer = [CALayer new];
         self.sliderLayer.backgroundColor = [UIColor whiteColor].CGColor;
-        self.sliderLayer.cornerRadius = 2;
+        self.sliderLayer.cornerRadius = SLIDER_CORNERRADIUS;
         [backLayer addSublayer:self.sliderLayer];
-        
-        [[UIApplication sharedApplication].keyWindow addSubview:self];
-        CGFloat width = 300;
-        CGFloat height = 18;
-        self.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - width) / 2, 17, width, height);
-        
-        self.volumeIcon.frame = CGRectMake(0, 0, height, height);
-        backLayer.frame = CGRectMake(height + 10, (height - 4) / 2.0, width - height - 10, 4);
-        self.sliderLayer.frame = backLayer.bounds;
-        
-        
     }
     return self;
 }
 
+- (void)layoutSubviews {
+    CGFloat width = SLIDER_WIDTH;
+    CGFloat height = SLIDER_HEIGHT;
+    self.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - width) / 2, 88, width, height);
+    
+    self.volumeIcon.frame = CGRectMake(0, 0, height, height);
+    self.backLayer.frame = CGRectMake(height + 10, (height - 4) / 2.0, width - height - 10, 4);
+    self.sliderLayer.frame = self.backLayer.bounds;
+}
 
 - (void)setVolume:(CGFloat)volume {
     [super setVolume:volume];
-    [self setupSliderWithValue:volume];
-    
-    [NSObject cancelPreviousPerformRequestsWithTarget:self
-                                             selector:@selector(hideSelf)
-                                               object:nil];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.alpha = 1;
         [self setupSliderWithValue:volume];
     });
-    [self performSelector:@selector(hideSelf)
-               withObject:nil
-               afterDelay:2.0];
 }
-
-
 
 - (void)setupSliderWithValue:(float)value {
     CGRect temp = self.sliderLayer.frame;
-    temp.size.width = (300 - 18 - 10) * value;
+    temp.size.width = (SLIDER_WIDTH - SLIDER_HEIGHT - 10) * value;
     self.sliderLayer.frame = temp;
     if (value == 0) {
         self.volumeIcon.image = [UIImage imageNamed:@"volume_silent"];
@@ -78,12 +70,6 @@
     else {
         self.volumeIcon.image = [UIImage imageNamed:@"volume"];
     }
-}
-
-- (void)hideSelf {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.alpha = 0;
-    });
 }
 
 @end

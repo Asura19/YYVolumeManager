@@ -14,7 +14,6 @@
 @interface YYVolumeManager()
 @property (nonatomic, strong) MPVolumeView *defaultVolumeView;
 @property (nonatomic, strong) UISlider *volumeSlider;
-//@property (nonatomic, strong) VolumeSlider *customVolumeSlider;
 @end
 
 @implementation YYVolumeManager {
