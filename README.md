@@ -14,12 +14,12 @@ Add observer.
 [[YYVolumeManager shared] addObserver:self];
 ```
 
-Back to Default volume UI
+Use custom volume UI
 ```
-[[YYVolumeManager shared] setDefaultVolumeUI:YES];
+[[YYVolumeManager shared] setCustomVolumeUI:YES];
 ```
 
-Do something if you want when wolume changed
+Do something if you want when volume changed, such as update custom volume UI.
 ```
 - (void)volumeChanged:(CGFloat)value {}
 ```
