@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import "YYVolumeView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYVolumeManager : NSObject
 @property (nonatomic, assign) CGFloat volume;
-@property (nonatomic, assign) BOOL defaultVolumeUI;
-@property (nonatomic, strong) YYVolumeView *customVolumeView;
+@property (nonatomic, assign) BOOL customVolumeUI;
 
 - (instancetype)init UNAVAILABLE_ATTRIBUTE;
 + (instancetype)new UNAVAILABLE_ATTRIBUTE;

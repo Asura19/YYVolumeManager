@@ -9,7 +9,6 @@
 #import "YYVolumeManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-#import "VolumeSlider.h"
 
 @interface YYVolumeManager()
 @property (nonatomic, strong) MPVolumeView *defaultVolumeView;
@@ -46,12 +45,13 @@ static dispatch_once_t onceToken;
     self = [super init];
     _observers = [[NSHashTable alloc] initWithOptions:NSPointerFunctionsWeakMemory | NSPointerFunctionsObjectPersonality capacity:0];
     _volume = [[AVAudioSession sharedInstance] outputVolume];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    if ([NSThread isMainThread]) {
         self.defaultVolumeView = [[MPVolumeView alloc] init];
-        [self.defaultVolumeView setFrame:CGRectMake(-100, -100, 40, 40)];
-        [[UIApplication sharedApplication].keyWindow addSubview:self.defaultVolumeView];
-        _customVolumeView = [[VolumeSlider alloc] initWithVolume:_volume];
-    });
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.defaultVolumeView = [[MPVolumeView alloc] init];
+        });
+    }
     [self registeNotification];
     return self;
 }
@@ -70,24 +70,14 @@ static dispatch_once_t onceToken;
     [_observers removeObject:observer];
 }
 
-
-- (void)setCustomVolumeView:(YYVolumeView *)customVolumeView {
-    _customVolumeView = customVolumeView;
-    _customVolumeView.volume = _volume;
-}
-
-
-- (void)setDefaultVolumeUI:(BOOL)defaultVolumeUI {
+- (void)setCustomVolumeUI:(BOOL)customVolumeUI {
     [self.defaultVolumeView removeFromSuperview];
-    self.customVolumeView.hidden = defaultVolumeUI;
-    if (defaultVolumeUI) {
-        
-    }
-    else {
+    if (customVolumeUI) {
         [self.defaultVolumeView setFrame:CGRectMake(-100, -100, 40, 40)];
         [[UIApplication sharedApplication].keyWindow addSubview:self.defaultVolumeView];
     }
 }
+
 
 - (UISlider *)volumeSlider {
     if (!_volumeSlider) {
@@ -119,10 +109,9 @@ static dispatch_once_t onceToken;
 - (void)volumeChanged:(NSNotification *)notification {
     CGFloat currentVolume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
     self.volume = currentVolume;
-    self.customVolumeView.volume = currentVolume;
-    
+
     for (id<YYVolumeObserver> observer in _observers.copy) {
-        if ([observer respondsToSelector:@selector(volumeChanged:)]) {
+        if (observer && [observer respondsToSelector:@selector(volumeChanged:)]) {
             [observer volumeChanged:currentVolume];
         }
     }

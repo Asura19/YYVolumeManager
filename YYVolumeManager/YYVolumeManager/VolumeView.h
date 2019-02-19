@@ -1,16 +1,16 @@
 //
-//  YYVolumeView.h
+//  VolumeView.h
 //  YYVolumeManager
 //
-//  Created by Phoenix on 2018/8/23.
-//  Copyright © 2018 Phoenix. All rights reserved.
+//  Created by Phoenix on 2019/2/19.
+//  Copyright © 2019 Phoenix. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YYVolumeView : UIView
+@interface VolumeView : UIView
 @property (nonatomic, assign) CGFloat volume;
 - (instancetype)initWithVolume:(CGFloat)volume;
 @end

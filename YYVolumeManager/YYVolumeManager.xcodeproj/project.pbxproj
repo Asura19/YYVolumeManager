@@ -14,8 +14,7 @@
 		D074D9481F62ADDC00CB0E92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D074D9461F62ADDC00CB0E92 /* LaunchScreen.storyboard */; };
 		D074D94B1F62ADDC00CB0E92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D94A1F62ADDC00CB0E92 /* main.m */; };
 		D074D9551F62AE2900CB0E92 /* YYVolumeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */; };
-		D074D9561F62AE2900CB0E92 /* VolumeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D074D9541F62AE2900CB0E92 /* VolumeSlider.m */; };
-		D0C98603212E9DB8008CCF8A /* YYVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C98602212E9DB8008CCF8A /* YYVolumeView.m */; };
+		D0F24705221C24A000FC3038 /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F24704221C24A000FC3038 /* VolumeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +29,9 @@
 		D074D9491F62ADDC00CB0E92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D074D94A1F62ADDC00CB0E92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D074D9511F62AE2800CB0E92 /* YYVolumeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYVolumeManager.h; sourceTree = "<group>"; };
-		D074D9521F62AE2800CB0E92 /* VolumeSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeSlider.h; sourceTree = "<group>"; };
 		D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYVolumeManager.m; sourceTree = "<group>"; };
-		D074D9541F62AE2900CB0E92 /* VolumeSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeSlider.m; sourceTree = "<group>"; };
-		D0C98601212E9DB8008CCF8A /* YYVolumeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYVolumeView.h; sourceTree = "<group>"; };
-		D0C98602212E9DB8008CCF8A /* YYVolumeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYVolumeView.m; sourceTree = "<group>"; };
+		D0F24703221C24A000FC3038 /* VolumeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolumeView.h; sourceTree = "<group>"; };
+		D0F24704221C24A000FC3038 /* VolumeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolumeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +69,8 @@
 				D074D93C1F62ADDC00CB0E92 /* AppDelegate.m */,
 				D074D93E1F62ADDC00CB0E92 /* ViewController.h */,
 				D074D93F1F62ADDC00CB0E92 /* ViewController.m */,
+				D0F24703221C24A000FC3038 /* VolumeView.h */,
+				D0F24704221C24A000FC3038 /* VolumeView.m */,
 				D074D9411F62ADDC00CB0E92 /* Main.storyboard */,
 				D074D9441F62ADDC00CB0E92 /* Assets.xcassets */,
 				D074D9461F62ADDC00CB0E92 /* LaunchScreen.storyboard */,
@@ -86,10 +85,6 @@
 			children = (
 				D074D9511F62AE2800CB0E92 /* YYVolumeManager.h */,
 				D074D9531F62AE2900CB0E92 /* YYVolumeManager.m */,
-				D074D9521F62AE2800CB0E92 /* VolumeSlider.h */,
-				D074D9541F62AE2900CB0E92 /* VolumeSlider.m */,
-				D0C98601212E9DB8008CCF8A /* YYVolumeView.h */,
-				D0C98602212E9DB8008CCF8A /* YYVolumeView.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -166,9 +161,8 @@
 			files = (
 				D074D9401F62ADDC00CB0E92 /* ViewController.m in Sources */,
 				D074D9551F62AE2900CB0E92 /* YYVolumeManager.m in Sources */,
-				D0C98603212E9DB8008CCF8A /* YYVolumeView.m in Sources */,
+				D0F24705221C24A000FC3038 /* VolumeView.m in Sources */,
 				D074D94B1F62ADDC00CB0E92 /* main.m in Sources */,
-				D074D9561F62AE2900CB0E92 /* VolumeSlider.m in Sources */,
 				D074D93D1F62ADDC00CB0E92 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
