@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1i5-co-v0q">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="wNM-aH-cmS">
+            <objects>
+                <viewController id="1i5-co-v0q" customClass="ViewController" customModule="YYVolumeManager" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKS-YV-HSn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press volume button or drag the slider to change volume" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNV-b2-XRL">
+                                <rect key="frame" x="76" y="115" width="222" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="EqY-Gl-5Kq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set custom UI when turn on the switch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7z-E5-Yeq">
+                                <rect key="frame" x="39" y="517" width="296" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yfb-Y6-lSt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bor-CN-Zv5">
+                                <rect key="frame" x="162.5" y="461" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Eaa-bg-RIt"/>
+                                    <constraint firstAttribute="width" constant="49" id="oUI-ct-cQA"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="setCustomVolumeUI:" destination="1i5-co-v0q" eventType="valueChanged" id="Cah-br-kdF"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OvR-BA-fTJ">
+                                <rect key="frame" x="28" y="372" width="319" height="30"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="WBi-pB-56W"/>
+                                    <constraint firstAttribute="height" constant="29" id="iWl-fj-1se"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeVolume:" destination="1i5-co-v0q" eventType="valueChanged" id="TGN-2h-78h"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OvR-BA-fTJ" firstAttribute="leading" secondItem="92E-b7-Lh5" secondAttribute="leading" constant="30" id="0eL-KO-9TC"/>
+                            <constraint firstItem="92E-b7-Lh5" firstAttribute="trailing" secondItem="OvR-BA-fTJ" secondAttribute="trailing" constant="30" id="5BB-Au-bUU"/>
+                            <constraint firstItem="92E-b7-Lh5" firstAttribute="trailing" secondItem="OvR-BA-fTJ" secondAttribute="trailing" constant="30" id="6eT-JN-KIq"/>
+                            <constraint firstItem="X7z-E5-Yeq" firstAttribute="top" secondItem="bor-CN-Zv5" secondAttribute="bottom" constant="25" id="7P8-VU-umt"/>
+                            <constraint firstItem="aNV-b2-XRL" firstAttribute="leading" secondItem="92E-b7-Lh5" secondAttribute="leading" constant="76" id="8rW-yO-XbL"/>
+                            <constraint firstItem="OvR-BA-fTJ" firstAttribute="leading" secondItem="92E-b7-Lh5" secondAttribute="leading" constant="30" id="FJY-NF-gHH"/>
+                            <constraint firstItem="X7z-E5-Yeq" firstAttribute="leading" secondItem="92E-b7-Lh5" secondAttribute="leading" constant="39" id="L4t-gc-gRX"/>
+                            <constraint firstItem="92E-b7-Lh5" firstAttribute="trailing" secondItem="aNV-b2-XRL" secondAttribute="trailing" constant="77" id="OGr-k5-iCG"/>
+                            <constraint firstItem="aNV-b2-XRL" firstAttribute="top" secondItem="92E-b7-Lh5" secondAttribute="top" constant="95" id="Rx0-WA-8y0"/>
+                            <constraint firstItem="bor-CN-Zv5" firstAttribute="top" secondItem="OvR-BA-fTJ" secondAttribute="bottom" constant="60" id="Va8-sa-O09"/>
+                            <constraint firstItem="92E-b7-Lh5" firstAttribute="trailing" secondItem="X7z-E5-Yeq" secondAttribute="trailing" constant="40" id="aeb-e5-ftA"/>
+                            <constraint firstItem="X7z-E5-Yeq" firstAttribute="centerX" secondItem="bor-CN-Zv5" secondAttribute="centerX" id="fhg-bA-p4m"/>
+                            <constraint firstItem="92E-b7-Lh5" firstAttribute="bottom" secondItem="X7z-E5-Yeq" secondAttribute="bottom" constant="100" id="jkd-A8-8CA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="92E-b7-Lh5"/>
+                    </view>
+                    <connections>
+                        <outlet property="slider" destination="OvR-BA-fTJ" id="ts2-cu-Vkg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAK-hs-UtI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
