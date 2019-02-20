@@ -51,12 +51,7 @@
 
 - (IBAction)setCustomVolumeUI:(UISwitch *)sender {
     self.customVolumeView.hidden = !sender.isOn;
-    if (sender.isOn) {
-        [[YYVolumeManager shared] setCustomVolumeUI:YES];
-    }
-    else {
-        [[YYVolumeManager shared] setCustomVolumeUI:NO];
-    }
+    [[YYVolumeManager shared] setCustomVolumeUI:sender.isOn];
 }
 
 - (void)volumeChanged:(CGFloat)value {
