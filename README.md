@@ -26,3 +26,5 @@ As we all know, it is not convenient to change media volume in iOS. So I write t
 
 * You can use your custom UI if you do not like mine.
 * Debug on real iOS device.
+
+* I hope the code will be unnecessary on iOS 13.
